@@ -1,0 +1,43 @@
+#Container {
+  width: 100%;
+  height: calc(100vh + 20vh);
+  display: flex;
+  margin-top: 2em;
+  gap: 2em;
+  padding: 0 2em;
+}
+
+/* ---------------------------------------------------------------- */
+
+#LeftBar {
+  width: 23%;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+.CardsComponent {
+  display: flex;
+  flex-direction: column;
+
+  background: #262d34;
+  border-radius: 2em;
+}
+
+#friends {
+  margin: 1em 0 0 2em;
+  font-weight: bold;
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------- */
+
+#MiddleBar {
+  background: green;
+  width: 60%;
+}
+
+#RightBar {
+  background: red;
+  width: 22%;
+}

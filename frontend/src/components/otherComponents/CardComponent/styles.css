@@ -1,0 +1,37 @@
+.CardContainer {
+  background: #262d34;
+  padding: 1em;
+  border-radius: 1em;
+  display: flex;
+  gap: 1em;
+  cursor: pointer;
+}
+
+.CardContainer:hover {
+  background: #2c353d;
+  transition: all 0.3s ease-in-out;
+}
+
+.ImageCardContainer {
+  background: #2c353d;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1em;
+}
+
+.ImageCardContainer img {
+  width: 2em;
+  height: 2em;
+}
+
+.TextContainer h3 {
+  font-weight: bold;
+  color: #fff;
+}
+
+.TextContainer p {
+  font-size: 0.8em;
+}
