@@ -19,9 +19,9 @@
 .CardsComponent {
   display: flex;
   flex-direction: column;
-
   background: #262d34;
   border-radius: 2em;
+  padding-bottom: 1em;
 }
 
 #friends {
