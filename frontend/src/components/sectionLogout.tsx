@@ -6,7 +6,7 @@ export default function sectionLogout () {
             <div>
               <h1 className="text-5xl font-bold">Conheça uma das melhores comunidades de cientistas</h1>
               <p className="py-6">Conheça pessoas interessadas na ciência e contribua com as suas ideias!</p>
-              <button className="btn btn-primary">Comunidade</button>
+              <button className="btn btn-primary">Conheça a comunidade</button>
             </div>
           </div>
         </div>
