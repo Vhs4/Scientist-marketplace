@@ -12,7 +12,7 @@ export default function editprofile() {
                 </div>
                 <div className="flex-none gap-2">
                     <div className="form-control">
-                        <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+                        <input type="text" placeholder="Search for a post..." className="input input-bordered w-24 md:w-auto" />
                     </div>
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
