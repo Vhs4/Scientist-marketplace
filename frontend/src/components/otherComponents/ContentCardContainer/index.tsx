@@ -1,21 +1,20 @@
 import React from "react";
 import "./styles.css";
 
-const ContentCardContainer = () => {
+const ContentCardContainer = ({Img, Title, Tag}: any) => {
   return (
     <div className="ContentCardContainer">
-      <div>
-        <img src="assets/Rectangle 24.svg" alt="" />
+      <div className="ContainerImg">
+        <img src={Img} alt="" />
       </div>
       <div className="InfoCardContainer">
         <div className="TitleAndLike">
-          <h1>Blockchain developer best practices on innovationchain</h1>
+          <h1>{Title}</h1>
           <img src="assets/Like.svg" alt="" />
         </div>
         <div className="TagsContainer">
           <div className="Tags">
-            <div className="btn-xs">finance</div>
-            <div className="btn-xs">bitcoin</div>
+            <div className="btn-xs">{Tag}</div>
           </div>
         </div>
         <div className="UserContainer">

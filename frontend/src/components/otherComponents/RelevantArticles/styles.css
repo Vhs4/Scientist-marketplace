@@ -1,4 +1,19 @@
 #RelevantArticles {
   font-weight: bold;
   color: #fff;
+  margin-bottom: 2em;
+}
+
+.Content {
+  border-bottom: 1px solid #3d4349;
+}
+
+.title {
+  font-weight: bold;
+  color: #fff;
+}
+
+.posts {
+  margin-bottom: 1em;
+  font-size: 0.8em;
 }
