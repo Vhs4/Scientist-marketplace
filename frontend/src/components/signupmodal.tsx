@@ -70,7 +70,12 @@ const SignUpModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                                     <input id="dropzone-file" type="file" className="hidden" required={true} />
                                 </label>
                             </div>
-
+                            <div className="form-control">
+                                <label className="cursor-pointer label">
+                                    <a className="label-text font-bold" href="/terms" target="_blank">I accept the <u>terms and conditions of use</u></a>
+                                    <input type="checkbox" className="checkbox checkbox-info" />
+                                </label>
+                            </div>
                             <div className="text-center">
                                 <button
                                     type="submit"
