@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from "react";
 
 interface SignUpModalProps {
   onClose: () => void;
@@ -6,9 +6,9 @@ interface SignUpModalProps {
 
 const SignUpModal: React.FC<SignUpModalProps> = ({ onClose }) => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
+    username: "",
+    email: "",
+    password: "",
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -23,21 +23,32 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ onClose }) => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://127.0.0.1/create', {
-        method: 'POST',
+      const response = await fetch("http://localhost:8000/user/create", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          user: {
+            email: formData.email,
+            username: formData.username,
+            hashed_password: formData.password,
+            profile_picture: "", // Você pode adicionar a lógica para enviar a imagem aqui
+            profile_type: "user",
+            disponibility: "", // Adicione a lógica para enviar a disponibilidade aqui
+          },
+          skills: [], // Você pode adicionar a lógica para enviar habilidades aqui
+        }),
       });
 
       if (response.ok) {
-        window.location.href = '/Home/';
+        // Usuário criado com sucesso, faça o que for necessário (redirecionar, mostrar uma mensagem, etc.)
+        window.location.href = "/home";
       } else {
-        console.log('error');
+        console.log("Erro ao criar usuário");
       }
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
+      console.error("Erro ao enviar formulário:", error);
     }
   };
 
@@ -154,20 +165,14 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ onClose }) => {
                       />
                     </svg>
                     <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
-                      <span className="font-semibold">
-                        Click to upload
-                      </span>{' '}
-                      or drag and drop
+                      <span className="font-semibold">Click to upload</span> or
+                      drag and drop
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400">
                       SVG, PNG or JPG
                     </p>
                   </div>
-                  <input
-                    id="dropzone-file"
-                    type="file"
-                    className="hidden"
-                  />
+                  <input id="dropzone-file" type="file" className="hidden" />
                 </label>
               </div>
               <div className="form-control">
@@ -189,7 +194,7 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ onClose }) => {
               <div className="text-center">
                 <button
                   type="submit"
-                  style={{ backgroundColor: '#3abff8' }}
+                  style={{ backgroundColor: "#3abff8" }}
                   className="text-white py-2 px-4 rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300"
                 >
                   Create account

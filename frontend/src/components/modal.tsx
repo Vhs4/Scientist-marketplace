@@ -4,15 +4,44 @@ import React, { useState } from "react";
 const RedditPostForm: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    // Lógica para enviar a postagem ao servidor ou realizar outras operações
-    console.log("Título:", title);
-    console.log("Conteúdo:", content);
-    // Limpar os campos após enviar a postagem
-    setTitle("");
-    setContent("");
+
+    try {
+      const token = "seu-token-de-autenticacao-aqui"; // Substitua pelo seu token de autenticação
+      const response = await fetch(
+        "http://localhost:8000/user/ports/create_post",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`, // Inclua o token no cabeçalho de autorização
+          },
+          body: JSON.stringify({
+            title: title,
+            content: content,
+            user_id: 0,
+          }),
+        }
+      );
+
+      if (response.ok) {
+        // Postagem bem-sucedida
+        console.log("Postagem enviada com sucesso!");
+        // Limpar os campos após enviar a postagem
+        setTitle("");
+        setContent("");
+        setError(null);
+      } else {
+        // Se a resposta não estiver ok, lançar um erro
+        throw new Error("Falha ao enviar postagem.");
+      }
+    } catch (error) {
+      console.error("Erro ao enviar postagem:", error);
+      setError("Falha ao enviar postagem. Por favor, tente novamente.");
+    }
   };
 
   return (
@@ -24,6 +53,7 @@ const RedditPostForm: React.FC = () => {
         <h2 className="text-2xl font-semibold mb-6 text-white">
           Criar Nova Postagem
         </h2>
+        {error && <div className="text-red-500 mb-4">{error}</div>}
         <div className="mb-4">
           <label
             className="block text-white text-sm font-bold mb-2"
