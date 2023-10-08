@@ -141,7 +141,10 @@ def get_posts_by_skill(
     query = session_db.execute(
         select(Post, SkillPost)
         .join(SkillPost)
-        .where(SkillPost.name.in_([skill.name for skill in skills]))
+        .where(
+            user_current.id != Post.user_id and
+            SkillPost.name.in_([skill.name for skill in skills])
+        )
         .options(selectinload(Post.skills))
     )
 
@@ -151,12 +154,27 @@ def get_posts_by_skill(
 
 @post_router.get("/get_all_posts", status_code=status.HTTP_200_OK)
 def get_posts_by_skill(
+    offset: int = 0,
+    limit: int = 10,
     session_db: Session = Depends(get_session_current_db),
 ):
     query = session_db.execute(
         select(Post)
         .join(User)
-        .options(selectinload(Post.skills), selectinload(Post.user))
+        .options(selectinload(Post.skills))
+        .offset(offset)
+        .limit(limit)
     )
+
     posts = query.scalars().all()
-    return posts
+
+    next_url = (
+        f"/user/ports/get_all_posts?offset={offset + limit}&limit={limit}"
+        if len(posts) == limit
+        else None
+    )
+
+    return {
+        "next_url": next_url,
+        "posts": posts,
+    }
