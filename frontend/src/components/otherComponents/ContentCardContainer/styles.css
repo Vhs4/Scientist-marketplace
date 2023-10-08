@@ -1,0 +1,86 @@
+.ContentCardContainer {
+  display: flex;
+  margin-bottom: 1em;
+  border-radius: 1em;
+  padding: 10px 0;
+  background: #262d34;
+}
+
+.InfoCardContainer {
+  margin-left: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.InfoCardContainer h1 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.Tags {
+  display: flex;
+  gap: 1em;
+  width: 100%;
+}
+
+.Tags div {
+  border-radius: 10px;
+  font-weight: bolder;
+  color: #fff;
+  font-size: 1em;
+  background: #2c353d;
+  height: 2em;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.ImgContainer {
+  margin-top: 3em;
+  background: #fff;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ImgContainer img {
+  width: 2em;
+}
+
+.UserContainer {
+  display: flex;
+  align-items: end;
+}
+
+.UserContainer .UserContent {
+  margin: 0 3em 0 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.UserContainer .UserContent .UserName {
+  font-weight: bold;
+  color: white;
+}
+
+.UserContainer .Statistics {
+  display: flex;
+  gap: 1em;
+}
+
+.TitleAndLike {
+  display: flex;
+  gap: 1em;
+}
+
+.InfoCardContainer .LikeContainer {
+  width: 2em;
+  background: #2c353d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}

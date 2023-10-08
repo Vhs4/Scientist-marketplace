@@ -79,9 +79,20 @@
   height: 2.5em;
 }
 
+#ContentCard {
+  width: 100%;
+  margin-top: 2em;
+  padding: 1em;
+  border-radius: 1em;
+}
+
+#ContentCard .ContentCards {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ---------------------------------------------------------------- */
 
 #RightBar {
-  background: red;
   width: 22%;
 }
