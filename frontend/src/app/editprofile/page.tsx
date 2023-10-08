@@ -8,7 +8,7 @@ export default function editprofile() {
         <div className="bg-primary-bg min-h-screen">
             <div className="navbar bg-primary-bg">
                 <div className="flex-1">
-                    <a className="btn btn-ghost normal-case text-xl text-white">Nebulab</a>
+                    <a className="btn btn-ghost normal-case text-xl text-white" href="../">Nebulab</a>
                 </div>
                 <div className="flex-none gap-2">
                     <div className="form-control">
@@ -46,7 +46,7 @@ export default function editprofile() {
             </div>
             <div className="container flex justify-center mt-4">
             <p className="mt-3 mr-4 font-bold text-white">Skill 1</p>
-                <select className="select select-bordered">
+                <select className="select select-bordered" defaultValue={''}>
                     <option disabled selected>Skill</option>
                     <option>Star Wars</option>
                     <option>Harry Potter</option>
