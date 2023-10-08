@@ -1,8 +1,24 @@
+'use client'
+
 import SkillDescription from '../components/skills'
 import SmoothScrollLink from './smoothScroll'
+import SignUpModal from './signupmodal';
+import React, { useState } from 'react';
 
 export default function sectionLogout() {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const toggleLoginModal = () => {
+    setIsLoginModalOpen(!isLoginModalOpen);
+  };
+
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
+
+  const toggleSignUpModal = () => {
+    setIsSignUpModalOpen(!isSignUpModalOpen);
+  };
   return (
+    
     <div>
       <div className="hero min-h-screen bg-gray-200">
         <div className="hero-content flex-col lg:flex-row">
@@ -47,7 +63,7 @@ export default function sectionLogout() {
             <SkillDescription skill="Data analysis" senioridade="Junior" corTexto="text-cyan-700" corBarra="bg-teal-300" corBarrinha="bg-teal-300" />
             <SkillDescription skill="Scientific Observation" senioridade="Pleno" corTexto="text-teal-800" corBarra="bg-green-400" corBarrinha="bg-green-400" />
             <SkillDescription skill="Laboratory Methods" senioridade="Sênior" corTexto="text-black" corBarra="bg-yellow-400" corBarrinha="bg-yellow-400" />
-            <button className="btn btn-info text-white">Get Started</button>
+            <button className="btn btn-info text-white" onClick={toggleSignUpModal}>Get Started</button>
           </div>
         </div>
       </div>
@@ -79,6 +95,8 @@ export default function sectionLogout() {
           <p className='font-semibold'>Certainly!
           </p>
         </div>
+        
+      {isSignUpModalOpen && <SignUpModal onClose={toggleSignUpModal} />}
       </div>
     </div>
 
