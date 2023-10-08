@@ -33,7 +33,7 @@ export default function Home() {
                             </div>
                         </div>
                         <a href="" className="flex justify-center">
-                        <div className="justify-between items-start shadow-[0px_5px_5px_0px_rgba(10,10,10,0.10)_inset] self-center flex w-[170px] flex-row gap-2 bg-white ml-px mt-5 mb-2.5 px-5 py-4 rounded-xl">
+                        <div className="justify-between items-start shadow-[0px_5px_5px_0px_rgba(10,10,10,0.10)_inset] self-center flex w-[170px] flex-row gap-2 bg-white ml-px mt-24 mb-2.5 px-5 py-4 rounded-xl">
                             <img
                                 loading="lazy"
                                 srcSet="../assets/email.svg"
