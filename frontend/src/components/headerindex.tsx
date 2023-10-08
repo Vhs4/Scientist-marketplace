@@ -31,10 +31,10 @@ export default function HeaderIndex() {
         </a>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-info mr-2 btn-12px" onClick={toggleLoginModal}>
+        <button className="btn btn-info mr-2 btn-12px text-white" onClick={toggleLoginModal}>
           Log in
         </button>
-        <button className="btn btn-info btn-12px" onClick={toggleSignUpModal}>Sign Up</button>
+        <button className="btn btn-info btn-12px text-white" onClick={toggleSignUpModal}>Sign Up</button>
       </div>
       {isLoginModalOpen && <LoginModal onClose={toggleLoginModal} />}
       {isSignUpModalOpen && <SignUpModal onClose={toggleSignUpModal} />}

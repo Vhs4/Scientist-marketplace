@@ -10,6 +10,28 @@ export default function sectionLogout() {
           <div>
             <h1 className="text-5xl font-bold">Meet one of the best communities of scientists</h1>
             <p className="py-6">Meet people interested in science and contribute your ideas!</p>
+            <div className="chat chat-start">
+  <div className="chat-image avatar">
+    <div className="w-10 rounded-full">
+      <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+    </div>
+  </div>
+  <div className="chat-header font-bold">
+    User 1
+  </div>
+  <div className="chat-bubble">I have an idea, you can help me?</div>
+</div>
+<div className="chat chat-end">
+  <div className="chat-image avatar">
+    <div className="w-10 rounded-full">
+      <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+    </div>
+  </div>
+  <div className="chat-header font-bold">
+    User 2
+  </div>
+  <div className="chat-bubble">Yes! What you need?</div>
+</div>
             <SmoothScrollLink to="#dinamyc" className="btn btn-info btn-outline">
               Join the community
             </SmoothScrollLink>
