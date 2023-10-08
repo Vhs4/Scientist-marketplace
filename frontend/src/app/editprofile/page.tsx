@@ -12,7 +12,7 @@ export default function editprofile() {
                 </div>
                 <div className="flex-none gap-2">
                     <div className="form-control">
-                        <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />
+                        <input type="text" placeholder="Search for a post..." className="input input-bordered w-24 md:w-auto" />
                     </div>
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -45,68 +45,63 @@ export default function editprofile() {
                 <textarea placeholder="Bio" className="ml-12 mb-4 textarea textarea-bordered textarea-lg w-full max-w-md" id="textareadescription" ></textarea>
             </div>
             <div className="container flex justify-center mt-4">
-            <p className="mt-3 mr-4 font-bold text-white">Skill 1</p>
-                <select className="select select-bordered" defaultValue={''}>
+                <p className="mt-3 mr-4 font-bold text-white">Skill 1</p>
+                <select className="select select-bordered">
                     <option disabled selected>Skill</option>
-                    <option>Star Wars</option>
-                    <option>Harry Potter</option>
-                    <option>Lord of the Rings</option>
-                    <option>Planet of the Apes</option>
-                    <option>Star Trek</option>
+                    <option>Data analysis</option>
+                    <option>Scientific Observation</option>
+                    <option>Laboratory Methods</option>
+                    <option>Space Observation</option>
+                    <option>Experimentation</option>
                 </select>
                 <select className="select ml-2 select-bordered">
                     <option disabled selected>Tier</option>
-                    <option>Star Wars</option>
-                    <option>Harry Potter</option>
-                    <option>Lord of the Rings</option>
-                    <option>Planet of the Apes</option>
-                    <option>Star Trek</option>
+                    <option>Junior</option>
+                    <option>Pleno</option>
+                    <option>Sênior</option>
                 </select>
-                
+
             </div>
             <div className="container flex justify-center mt-4">
-            <p className="mt-3 mr-4 font-bold text-white">Skill 2</p>
+                <p className="mt-3 mr-4 font-bold text-white">Skill 2</p>
                 <select className="select select-bordered">
                     <option disabled selected>Skill</option>
-                    <option>Star Wars</option>
-                    <option>Harry Potter</option>
-                    <option>Lord of the Rings</option>
-                    <option>Planet of the Apes</option>
-                    <option>Star Trek</option>
+                    <option>Data analysis</option>
+                    <option>Scientific Observation</option>
+                    <option>Laboratory Methods</option>
+                    <option>Space Observation</option>
+                    <option>Experimentation</option>
                 </select>
                 <select className="select ml-2 select-bordered">
                     <option disabled selected>Tier</option>
-                    <option>Star Wars</option>
-                    <option>Harry Potter</option>
-                    <option>Lord of the Rings</option>
-                    <option>Planet of the Apes</option>
-                    <option>Star Trek</option>
+                    <option>Junior</option>
+                    <option>Pleno</option>
+                    <option>Sênior</option>
                 </select>
-                </div>
-                <div className="container flex justify-center mt-4">
-                    <p className="mt-3 mr-4 font-bold text-white">Skill 3</p>
+            </div>
+            <div className="container flex justify-center mt-4">
+                <p className="mt-3 mr-4 font-bold text-white">Skill 3</p>
                 <select className="select select-bordered">
                     <option disabled selected>Skill</option>
-                    <option>Star Wars</option>
-                    <option>Harry Potter</option>
-                    <option>Lord of the Rings</option>
-                    <option>Planet of the Apes</option>
-                    <option>Star Trek</option>
+                    <option>Data analysis</option>
+                    <option>Scientific Observation</option>
+                    <option>Laboratory Methods</option>
+                    <option>Space Observation</option>
+                    <option>Experimentation</option>
                 </select>
                 <select className="select ml-2 select-bordered">
                     <option disabled selected>Tier</option>
-                    <option>Star Wars</option>
-                    <option>Harry Potter</option>
-                    <option>Lord of the Rings</option>
-                    <option>Planet of the Apes</option>
-                    <option>Star Trek</option>
+                    <option>Junior</option>
+                    <option>Pleno</option>
+                    <option>Sênior</option>
                 </select>
-                </div>
+            </div>
             <div className="container flex justify-center mt-4">
                 <button className="btn btn-success  ml-60 mr-3">Save</button>
                 <button className="btn btn-error">Cancel</button>
             </div>
-           <Footer/>
+            <hr className="mt-1" />
+            <Footer />
         </div>
 
 
