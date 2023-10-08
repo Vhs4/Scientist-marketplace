@@ -65,7 +65,7 @@
 }
 
 .UserContainer .UserContent {
-  margin: 0 3em 0 1em;
+  margin: 0 10em 0 1em;
   display: flex;
   flex-direction: column;
 }
@@ -104,4 +104,51 @@
 
 .navbar div > img {
   width: 3em;
+}
+
+@media (max-width: 768px) {
+  .ContainerImg {
+    display: none;
+  }
+
+  .ContentCardContainer .ContainerImg img {
+    display: none;
+  }
+
+  .InfoCardContainer .TitleAndLike h1 {
+    font-size: 1em;
+  }
+
+  .Tags div {
+    font-size: 0.8em;
+  }
+
+  .UserContainer .ImgContainer {
+    display: none;
+  }
+
+  .ImgContainer img {
+    width: 1.5em;
+  }
+
+  .UserContent {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .UserContainer .UserContent {
+    font-size: 12px;
+    width: 40%;
+    margin-right: 0;
+  }
+
+  .Statistics {
+    font-size: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+  }
 }

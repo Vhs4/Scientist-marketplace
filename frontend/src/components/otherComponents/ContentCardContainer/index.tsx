@@ -28,7 +28,6 @@ const ContentCardContainer = ({Img, Title, Tag}: any) => {
             <div>3 weeks ago</div>
           </div>
           <div className="Statistics">
-            <div>651,324 Views</div>
             <div>36,6545 Likes</div>
             <div>56 comments</div>
           </div>

@@ -3,6 +3,7 @@ import CardComponent from "../otherComponents/CardComponent";
 import FriendCardContainer from "../otherComponents/FriendCardContainer";
 import ContentCardContainer from "../otherComponents/ContentCardContainer";
 import RelevantArticles from "../otherComponents/RelevantArticles";
+import { GoPaperclip } from "react-icons/go";
 
 import "./styles.css";
 
@@ -30,7 +31,7 @@ const Content = () => {
           />
         </div>
 
-        <div className="CardsComponent">
+        <div className="FriendCardsComponent">
           <div id="friends">
             <h2>Friends</h2>
           </div>
@@ -67,11 +68,16 @@ const Content = () => {
             <input
               type="text"
               placeholder="Let’s share what going on your mind..."
-              className="input input-bordered w-full max-w-xs"
+              className="input"
             />
           </div>
 
-          <button className="btn">Create Post</button>
+          <div className="buttonClip">
+            <GoPaperclip />
+            <button className="button">
+              <a href="">Create Post</a> 
+            </button>
+          </div>
         </div>
 
         <div id="ContentCard">
@@ -81,7 +87,6 @@ const Content = () => {
             Title={"A amazing chemistry article about"}
             Tag={"Chemistry"}
             />
-            
           </div>
         </div>
       </section>

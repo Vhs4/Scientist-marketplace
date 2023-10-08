@@ -73,3 +73,17 @@
   letter-spacing: 0em;
   text-align: left;
 }
+
+.navbar {
+  height: 2em;
+}
+
+.navbar img {
+  width: 3em;
+}
+
+.ContainerBtn {
+  display: flex;
+  gap: 1em;
+  margin-right: 2em;
+}

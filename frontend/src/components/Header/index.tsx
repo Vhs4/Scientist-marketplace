@@ -70,7 +70,7 @@ const Header = () => {
             Profile
           </a>
         </li>
-        <li><a>Settings</a></li>
+        <li><a>Edit Profile</a></li>
         <li><a>Logout</a></li>
       </ul>
     </div>
