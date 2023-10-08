@@ -3,7 +3,6 @@ import CardComponent from "../otherComponents/CardComponent";
 import FriendCardContainer from "../otherComponents/FriendCardContainer";
 import ContentCardContainer from "../otherComponents/ContentCardContainer";
 import RelevantArticles from "../otherComponents/RelevantArticles";
-import { GoPaperclip } from "react-icons/go";
 
 import "./styles.css";
 
@@ -73,19 +72,22 @@ const Content = () => {
           </div>
 
           <div className="buttonClip">
-            <GoPaperclip />
             <button className="button">
-              <a href="">Create Post</a> 
+              <a href="/submit" target="_blank">
+                Create Post
+              </a>
             </button>
           </div>
         </div>
 
         <div id="ContentCard">
           <div className="ContentCards">
-            <ContentCardContainer 
-            Img={"https://images.unsplash.com/photo-1617155093730-a8bf47be792d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"}
-            Title={"A amazing chemistry article about"}
-            Tag={"Chemistry"}
+            <ContentCardContainer
+              Img={
+                "https://images.unsplash.com/photo-1617155093730-a8bf47be792d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+              }
+              Title={"A amazing chemistry article about"}
+              Tag={"Chemistry"}
             />
           </div>
         </div>
