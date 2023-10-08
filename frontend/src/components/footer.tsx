@@ -10,7 +10,7 @@ export default function Footer() {
           width={50}
           height={50}
         />
-        <p>Dynamic atom<br />Providing usability and convenience in science for everyone.</p>
+        <p>Nebulab<br />Providing usability and convenience in science for everyone.</p>
       </aside>
       <nav className="ml-auto">
         <header className="footer-title">Social</header>
