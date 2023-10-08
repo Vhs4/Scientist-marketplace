@@ -3,7 +3,7 @@ import "./styles.css";
 
 const Header = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-primary-bg">
       <div className="flex-1">
         <img src="assets/logosvgsemfundo.svg" alt="" />
       </div>
