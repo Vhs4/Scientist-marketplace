@@ -6,7 +6,11 @@ const Header = () => {
     <div className="mockup-browser border bg-base-500" id="headerComponent">
       <div className="mockup-browser-toolbar">
         <div id="searchContainer">
-          <div className="input">Type here to search...</div>
+          <input
+            type="text"
+            placeholder="Type here to search..."
+            className="input input-bordered w-full max-w-xs"
+          />
         </div>
 
         <div id="bottonContainer">

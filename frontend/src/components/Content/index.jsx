@@ -1,5 +1,6 @@
 import React from "react";
 import CardComponent from "../otherComponents/CardComponent";
+import FriendCardContainer from "../otherComponents/FriendCardContainer";
 
 import "./styles.css";
 
@@ -29,32 +30,51 @@ const Content = () => {
 
         <div className="CardsComponent">
           <div id="friends">
-            <h2>Amigos</h2>
+            <h2>Friends</h2>
           </div>
-          <CardComponent
-            Text={"#javascript"}
-            Subtext={"82,645 Posted by this tag"}
-            icon={"assets/code.svg"}
+          <FriendCardContainer
+            Tag={"#javascript"}
+            Value={"82,645"}
+            Trending={"Posted by this tag"}
+            icon={"assets/Dev.svg"}
           />
 
-          <CardComponent
-            Text={"Popular of the day"}
-            Subtext={"Shots featured today by curators"}
-            icon={"assets/popularoftheday.svg"}
+          <FriendCardContainer
+            Tag={"#bitcoin"}
+            Value={"#65,523"}
+            Trending={"Trending in Bangladesh"}
+            icon={"assets/bitcoin.svg"}
           />
 
-          <CardComponent
-            Text={"Following"}
-            Subtext={"Explore from your favorite person"}
-            icon={"assets/Follow.svg"}
+          <FriendCardContainer
+            Tag={"#innovation"}
+            Value={"51,354"}
+            Trending={"Trending in Brazil"}
+            icon={"assets/blogging.svg"}
           />
         </div>
       </section>
 
       <section id="MiddleBar">
-        <div id="SearchBar">text</div>
+        <div id="SearchBar">
+          <div className="imgContainer">
+            <img src="assets/Memoji Boys 2-1.svg" alt="" />
+          </div>
 
-        <div id="Content"></div>
+          <div className="searchInput">
+            <input
+              type="text"
+              placeholder="Let’s share what going on your mind..."
+              className="input input-bordered w-full max-w-xs"
+            />
+          </div>
+
+          <button className="btn">Create Post</button>
+        </div>
+
+        <div id="ContentCard">
+          <h1>text</h1>
+        </div>
       </section>
 
       <section id="RightBar">

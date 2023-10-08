@@ -10,6 +10,11 @@
   width: 100%;
 }
 
+#searchContainer .input {
+  height: 3em;
+  width: 100%;
+}
+
 #bottonContainer {
   width: 30em;
   display: flex;

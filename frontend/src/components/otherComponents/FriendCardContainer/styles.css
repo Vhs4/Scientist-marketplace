@@ -1,0 +1,14 @@
+#FriendCard {
+  padding: 0 2em;
+}
+
+.FriendCardContainer {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.TextContainer span {
+  font-size: 13px;
+}

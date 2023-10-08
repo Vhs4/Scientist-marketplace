@@ -30,12 +30,56 @@
   color: #fff;
 }
 
+#friends h2 {
+  padding: 1em 0;
+  font-size: 1.3em;
+}
+
 /* ---------------------------------------------------------------- */
 
 #MiddleBar {
-  background: green;
   width: 60%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
+
+#MiddleBar .btn {
+  background: #ff6934;
+  color: #fff;
+  font-weight: bold;
+}
+
+#SearchBar {
+  background: #262d34;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1em;
+  border-radius: 1em;
+}
+
+.searchInput input {
+  width: 100em;
+}
+
+.imgContainer {
+  background: #f9dfc0;
+  border-radius: 50%;
+  width: 3em;
+  height: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgContainer img {
+  width: 2.5em;
+  height: 2.5em;
+}
+
+/* ---------------------------------------------------------------- */
 
 #RightBar {
   background: red;
