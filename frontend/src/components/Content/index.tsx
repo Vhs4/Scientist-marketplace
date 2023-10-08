@@ -87,11 +87,7 @@ const Content = () => {
       </section>
 
       <section id="RightBar">
-        <RelevantArticles 
-        
-        />
-        
-        
+        <RelevantArticles />
       </section>
     </div>
   );

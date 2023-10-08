@@ -1,6 +1,6 @@
 #Container {
   width: 100%;
-  height: calc(100vh - 11vh);
+  height: calc(100vh - 20vh);
   display: flex;
   margin-top: 5em;
   gap: 2em;
@@ -98,7 +98,6 @@
 
 #ContentCard {
   width: 100%;
-  margin-top: 2em;
   padding: 1em;
   border-radius: 1em;
 }
