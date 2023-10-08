@@ -7,7 +7,7 @@ from jose import jwt
 
 from app.config import ALGORITHM, SECRET_KEY
 from sqlalchemy import select, update, delete
-from app.models.user_model import User, Skill
+from app.models.user_model import User, SkillPost, SkillUser
 from app.schemas import UserBase, UserLogin, UserUpdate, SkillBase, SkillUpdate
 
 crypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -33,7 +33,11 @@ def crud_login_user(user: UserLogin, session_db: Session, expires_delta: int = 3
     return {"access_token": access_token, "expires": access_token_expires.isoformat()}
 
 
-def crud_create_user(user: UserBase, skills: list[SkillBase], session_db: Session):
+def crud_create_user(
+    user: UserBase,
+    skills: list[SkillBase],
+    session_db: Session,
+):
     query_user = session_db.execute(
         select(User).where(User.email == user.email and User.username == user.username)
     )
@@ -55,11 +59,12 @@ def crud_create_user(user: UserBase, skills: list[SkillBase], session_db: Sessio
     session_db.add(db_user)
     session_db.commit()
     for skill in skills:
-        db_skill = Skill(
-            name=skill.name,
-            user_id=db_user.id,
+        session_db.add(
+            SkillUser(
+                user_id=db_user.id,
+                name=skill.name,
+            )
         )
-        session_db.add(db_skill)
     session_db.commit()
 
 
@@ -76,6 +81,7 @@ def crud_get_user(user: UserBase, session_db: Session):
             detail="User not exists",
         )
     return db_user
+
 
 def crud_get_users(session_db: Session):
     query_users = session_db.execute(select(User).options(selectinload(User.skills)))

@@ -4,7 +4,7 @@ from sqlalchemy import select, insert
 
 from app.schemas import PostCreate, Post, SkillBase
 
-from app.models.user_model import User, Post, Request, Skill
+from app.models.user_model import User, Post, Request, SkillPost, SkillUser
 from app.depends import get_session_current_db, verify_token
 
 post_router = APIRouter(prefix="/user/ports")
@@ -26,32 +26,26 @@ def create_post(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="User not authenticated or token invalid",
         )
-    try:
-        db_post = Post(
-            title=post.title,
-            content=post.content,
-            user_id=user_current.id,
-        )
-        session_db.add(db_post)
-        session_db.commit()
-        for skill in skills:
-            db_skill = Skill(
-                name=skill.name,
-                user_id=user_current.id,
+    db_post = Post(
+        title=post.title,
+        content=post.content,
+        user_id=user_current.id,
+    )
+    session_db.add(db_post)
+    session_db.commit()
+    for skill in skills:
+        session_db.add(
+            SkillPost(
                 post_id=db_post.id,
+                name=skill.name,
             )
-            session_db.add(db_skill)
-        session_db.commit()
-        return {"message": "Post created successfully"}
-    except:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Error creating post",
         )
+    session_db.commit()
+    return {"message": "Post created successfully"}
 
 
-@post_router.get("/get_posts", status_code=status.HTTP_200_OK)
-def get_posts(
+@post_router.get("/get_my_posts", status_code=status.HTTP_200_OK)
+def get_my_posts(
     user_current: User = Depends(verify_token),
     session_db: Session = Depends(get_session_current_db),
 ):
@@ -61,7 +55,11 @@ def get_posts(
             detail="User not authenticated or token invalid",
         )
     try:
-        query = session_db.execute(select(Post).where(Post.user_id == user_current.id))
+        query = session_db.execute(
+            select(Post)
+            .where(Post.user_id == user_current.id)
+            .options(selectinload(Post.skills))
+        )
         posts = query.scalars().all()
         return posts
     except:
@@ -83,8 +81,11 @@ def create_request(
             detail="User not authenticated or token invalid",
         )
     try:
-        session_db.execute(
-            insert(Request).values(interested_user_id=user_current.id, post_id=post_id)
+        session_db.add(
+            Request(
+                post_id=post_id,
+                interested_user_id=user_current.id,
+            )
         )
 
         session_db.commit()
@@ -120,3 +121,42 @@ def get_requests(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Error getting requests",
         )
+
+
+@post_router.get("/get_posts_by_skill", status_code=status.HTTP_200_OK)
+def get_posts_by_skill(
+    user_current: User = Depends(verify_token),
+    session_db: Session = Depends(get_session_current_db),
+):
+    if not user_current:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="User not authenticated or token invalid",
+        )
+
+    skills_query = session_db.execute(
+        select(SkillUser).where(SkillUser.user_id == user_current.id)
+    )
+    skills = skills_query.scalars().all()
+    query = session_db.execute(
+        select(Post, SkillPost)
+        .join(SkillPost)
+        .where(SkillPost.name.in_([skill.name for skill in skills]))
+        .options(selectinload(Post.skills))
+    )
+
+    posts = query.scalars().all()
+    return posts
+
+
+@post_router.get("/get_all_posts", status_code=status.HTTP_200_OK)
+def get_posts_by_skill(
+    session_db: Session = Depends(get_session_current_db),
+):
+    query = session_db.execute(
+        select(Post)
+        .join(User)
+        .options(selectinload(Post.skills), selectinload(Post.user))
+    )
+    posts = query.scalars().all()
+    return posts
