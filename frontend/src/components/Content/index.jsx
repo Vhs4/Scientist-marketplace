@@ -2,6 +2,7 @@ import React from "react";
 import CardComponent from "../otherComponents/CardComponent";
 import FriendCardContainer from "../otherComponents/FriendCardContainer";
 import ContentCardContainer from "../otherComponents/ContentCardContainer";
+import RelevantArticles from "../otherComponents/RelevantArticles";
 
 import "./styles.css";
 
@@ -79,12 +80,16 @@ const Content = () => {
             <ContentCardContainer />
             <ContentCardContainer />
             <ContentCardContainer />
+            <ContentCardContainer />
+            <ContentCardContainer />
+            <ContentCardContainer />
+            <ContentCardContainer />
           </div>
         </div>
       </section>
 
       <section id="RightBar">
-        <div id="FriendSuggest">text</div>
+        <RelevantArticles />
       </section>
     </div>
   );

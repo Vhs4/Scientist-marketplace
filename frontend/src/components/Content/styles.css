@@ -1,8 +1,8 @@
 #Container {
   width: 100%;
-  height: calc(100vh + 20vh);
+  height: calc(100vh - 11vh);
   display: flex;
-  margin-top: 2em;
+  margin-top: 5em;
   gap: 2em;
   padding: 0 2em;
 }
@@ -10,10 +10,15 @@
 /* ---------------------------------------------------------------- */
 
 #LeftBar {
-  width: 23%;
+  width: 20%;
   display: flex;
   flex-direction: column;
   gap: 2em;
+  margin-left: 1em;
+
+  position: fixed;
+  top: 10;
+  left: 0;
 }
 
 .CardsComponent {
@@ -42,6 +47,9 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  max-height: 100vh;
+  overflow-y: auto;
+  margin: 5em auto;
 }
 
 #MiddleBar .btn {
@@ -52,12 +60,16 @@
 
 #SearchBar {
   background: #262d34;
-  width: 100%;
+  width: 55%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1em 1em;
   border-radius: 1em;
+
+  margin-top: 5em;
+  top: 0;
+  position: fixed;
 }
 
 .searchInput input {
@@ -94,5 +106,14 @@
 /* ---------------------------------------------------------------- */
 
 #RightBar {
-  width: 22%;
+  width: 19%;
+  height: 30em;
+  background: #262d34;
+  padding: 1em;
+  border-radius: 1em;
+  margin-right: 1em;
+
+  position: fixed;
+  top: 10;
+  right: 0;
 }

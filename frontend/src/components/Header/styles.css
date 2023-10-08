@@ -22,9 +22,15 @@
 }
 
 #headerComponent {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
   border-radius: 0;
   border: transparent;
-  background: #262d34;
+  background: #1e252b;
 }
 
 #mainUserContainer {

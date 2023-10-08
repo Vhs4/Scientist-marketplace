@@ -10,9 +10,7 @@ const ContentCardContainer = () => {
       <div className="InfoCardContainer">
         <div className="TitleAndLike">
           <h1>Blockchain developer best practices on innovationchain</h1>
-          <div className="LikeContainer">
-            <img src="assets/Like.svg" alt="" />
-          </div>
+          <img src="assets/Like.svg" alt="" />
         </div>
         <div className="TagsContainer">
           <div className="Tags">
