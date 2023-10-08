@@ -5,6 +5,7 @@ from passlib.context import CryptContext
 from datetime import datetime, timedelta
 from jose import jwt
 
+from sqlalchemy import insert, select, update, delete
 from app.models.user_model import User
 from app.schemas.user_schema import UserBase, UserUpdate, UserLogin
 
@@ -17,7 +18,7 @@ crypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 def crud_login_user(user: UserLogin, session_db: Session, expires_delta: int = 30):
     print("entrou no login_user")
     query_user = session_db.query(User)
-    db_user = query_user.filter(User.email == user.username).first()
+    db_user = query_user.filter(User.email == user.email).first()
 
     if db_user is None or not db_user.verify_password(user.password):
         raise HTTPException(
