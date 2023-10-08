@@ -20,7 +20,6 @@ export default function HeaderIndex() {
             alt="Logo"
             width={50}
             height={50}
-            style={{ fill: 'blue' }}
           />
         </a>
       </div>
