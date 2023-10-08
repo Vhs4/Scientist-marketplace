@@ -100,6 +100,7 @@ export default function editprofile() {
                 <button className="btn btn-success  ml-60 mr-3">Save</button>
                 <button className="btn btn-error">Cancel</button>
             </div>
+            <hr className="mt-1" />
             <Footer />
         </div>
 
