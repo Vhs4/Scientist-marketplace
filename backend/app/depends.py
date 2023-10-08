@@ -2,6 +2,7 @@ from os import environ
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException, status, Depends
 from jose import jwt, JWTError
+
 from .database import SessionLocal
 from .models.user_model import User
 

@@ -25,7 +25,7 @@ class UserBase(BaseModel):
 
 
 class UserLogin(BaseModel):
-    email: str
+    username: str
     hashed_password: str
 
 class UserUpdate(BaseModel):
