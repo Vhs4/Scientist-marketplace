@@ -1,13 +1,16 @@
-from os import environ
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import HTTPException, status, Depends
 from jose import jwt, JWTError
 
+from sqlalchemy.sql.expression import select
 from .database import SessionLocal
 from .models.user_model import User
 
+
+from app.config import ALGORITHM, SECRET_KEY
+
 oauth2_scheme = OAuth2PasswordBearer(
-    tokenUrl="user/login", auto_error=False, scheme_name="Bearer"
+    tokenUrl="/user/login", auto_error=False, scheme_name="Bearer"
 )
 
 
@@ -28,18 +31,17 @@ def verify_token(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="User not authenticated or token invalid",
         )
-
     try:
-        payload = jwt.decode(
-            token, key=environ.get("SECRET_KEY"), algorithms=[environ.get("ALGORITHM")]
-        )
+        payload = jwt.decode(token, key=SECRET_KEY, algorithms=[ALGORITHM])
 
     except JWTError:
         raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED, detail="Token invalid or expired"
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Token invalid or expired",
         )
 
-    user = session_db.query(User).filter_by(email=payload["sub"]).first()
+    query = session_db.execute(select(User).where(User.email == payload.get("sub")))
+    user = query.scalar_one_or_none()
     if not user:
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

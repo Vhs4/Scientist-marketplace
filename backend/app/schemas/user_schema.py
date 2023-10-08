@@ -10,23 +10,26 @@ class UserBase(BaseModel):
     email: str
     username: str
     hashed_password: str
+    profile_picture: Optional[str] = ""
+    profile_type: Optional[str] = "user"
+    disponibility: Optional[str] = ""
 
-    @validator("username")
-    def username_validator(cls, value):
-        if not re_match(REGEX_USERNAME, value):
-            raise ValueError("Invalid username")
-        return value
+    # @validator("username")
+    # def username_validator(cls, value):
+    #     if not re_match(REGEX_USERNAME, value):
+    #         raise ValueError("Invalid username")
+    #     return value
 
-    @validator("email")
-    def email_validator(cls, value):
-        if not re_match(REGEX_EMAIL, value):
-            raise ValueError("Invalid email address")
-        return value
+    # @validator("email")
+    # def email_validator(cls, value):
+    #     if not re_match(REGEX_EMAIL, value):
+    #         raise ValueError("Invalid email address")
+    #     return value
 
 
 class UserLogin(BaseModel):
     username: str
-    hashed_password: str
+    password: str
 
 class UserUpdate(BaseModel):
     email: Optional[str]
