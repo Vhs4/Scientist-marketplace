@@ -1,19 +1,20 @@
 import React from "react";
 import "./styles.css";
 
-const RelevantArticle = () => {
+const RelevantArticle = ({ Subtitle, Title, Post, Path }: any) => {
   return (
     <div className="Content">
-      <div id="RelevantArticles">Relevant articles</div>
       <div className="Container">
         <div className="subtitle">
-          <div>Nasa - advanced things</div>
+          <div>{Subtitle}</div>
         </div>
         <div className="title">
-          <div>See articles from Nasa</div>
+          <a href={Path} target="_blank">
+            {Title}
+          </a>
         </div>
         <div className="posts">
-          <div>68,234 - Posts</div>
+          <div>{Post}</div>
         </div>
       </div>
     </div>

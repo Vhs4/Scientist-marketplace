@@ -94,7 +94,33 @@ const Content = () => {
       </section>
 
       <section id="RightBar">
-        <RelevantArticles />
+        <div id="RelevantArticles">Relevant articles</div>
+        <RelevantArticles
+          Subtitle={"Nasa"}
+          Title={"NASA Gov"}
+          Path={"https://www.nasa.gov/"}
+          Post={"45,930 posts"}
+        />
+        <RelevantArticles
+          Subtitle={"Go to Mars"}
+          Title={"Data nasa"}
+          Post={"45,930 posts"}
+          Path={"https://data.nasa.gov/"}
+        />
+        <RelevantArticles
+          Subtitle={"Asteroids"}
+          Title={"NASA Asteroids"}
+          Post={"45,930 posts"}
+          Path={"https://www.jpl.nasa.gov/asteroid-watch/next-five-approaches"}
+        />
+        <RelevantArticles
+          Subtitle={"Nasa DATA STRATEGY"}
+          Title={"Nasa Book"}
+          Post={"45 posts"}
+          Path={
+            "https://www.nasa.gov/wp-content/uploads/2023/02/nasa_data_strategy.pdf"
+          }
+        />
       </section>
     </div>
   );
