@@ -15,6 +15,10 @@ const config: Config = {
       },
       colors: {
         'primary-bg': '#1E252B',
+        'primary-color': '#3abff8',
+      },
+      textColor: {
+        'primary-color': '#3abff8',
       },
     },
   },

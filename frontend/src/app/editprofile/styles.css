@@ -1,0 +1,9 @@
+:root {
+    --primary-color: #3abff8;
+  }
+
+#textareadescription {
+    resize: none;
+    border-color: var(--primary-color);
+    outline-color: var(--primary-color);
+}
