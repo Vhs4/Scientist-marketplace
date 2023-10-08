@@ -1,7 +1,7 @@
 import React from "react";
 import "./styles.css";
 
-const FriendCardContainer = ({ icon: Icon, Tag, Value, Trending }) => {
+const FriendCardContainer = ({ icon: Icon, Tag, Value, Trending }: any) => {
   return (
     <div id="FriendCard">
       <div className="FriendCardContainer">

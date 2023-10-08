@@ -1,7 +1,7 @@
 import React from "react";
 import "../CardComponent/styles.css";
 
-const CardComponent = ({ icon: Icon, Text, Subtext }) => {
+const CardComponent = ({ icon: Icon, Text, Subtext }: any) => {
   return (
     <div id="FirstCard">
       <div className="CardContainer">
