@@ -1,4 +1,5 @@
 import SkillDescription from '../components/skills'
+import SmoothScrollLink from './smoothScroll'
 
 export default function sectionLogout() {
   return (
@@ -9,15 +10,17 @@ export default function sectionLogout() {
           <div>
             <h1 className="text-5xl font-bold">Meet one of the best communities of scientists</h1>
             <p className="py-6">Meet people interested in science and contribute your ideas!</p>
-            <a className="btn btn-info btn-outline" href="#">Join the community</a>
+            <SmoothScrollLink to="#dinamyc" className="btn btn-info btn-outline">
+              Join the community
+            </SmoothScrollLink>
           </div>
         </div>
       </div>
-      <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://cdn.discordapp.com/attachments/1160180549114142752/1160373178758070272/photo-1496065187959-7f07b8353c55.png?ex=65346cbc&is=6521f7bc&hm=a55849689e21355d9e783814881fdb2bba885ea54ec0ad725ca5915a70f5a9eb&)' }}>
+      <div className="hero min-h-screen" id="dinamyc" style={{ backgroundImage: 'url(https://cdn.discordapp.com/attachments/1160180549114142752/1160373178758070272/photo-1496065187959-7f07b8353c55.png?ex=65346cbc&is=6521f7bc&hm=a55849689e21355d9e783814881fdb2bba885ea54ec0ad725ca5915a70f5a9eb&)' }}>
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-neutral-content mr-96">
           <div className="max-w-md text-left items-start mr-96">
-            <h1 className="mb-5 text-5xl font-bold">Dinamic community</h1>
+            <h1 className="mb-5 text-5xl font-bold">Dynamic community</h1>
             <p className="mb-5">We have a system of features and identification based on your skills.</p>
             <SkillDescription skill="Data analysis" senioridade="Junior" corTexto="text-cyan-700" corBarra="bg-teal-300" corBarrinha="bg-teal-300" />
             <SkillDescription skill="Scientific Observation" senioridade="Pleno" corTexto="text-teal-800" corBarra="bg-green-400" corBarrinha="bg-green-400" />

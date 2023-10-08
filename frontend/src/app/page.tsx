@@ -1,5 +1,6 @@
 import HeaderIndex from "@/components/headerindex"
 import SectionLogout from "@/components/sectionLogout"
+import Footer from "@/components/footer"
  
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <>
       <HeaderIndex />
       <SectionLogout />
+      <Footer />
     </>
   )
 }
