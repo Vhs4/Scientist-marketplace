@@ -33,16 +33,16 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ onClose }) => {
             email: formData.email,
             username: formData.username,
             hashed_password: formData.password,
-            profile_picture: "", // Você pode adicionar a lógica para enviar a imagem aqui
+            profile_picture: "", 
             profile_type: "user",
-            disponibility: "", // Adicione a lógica para enviar a disponibilidade aqui
+            disponibility: "",
           },
-          skills: [], // Você pode adicionar a lógica para enviar habilidades aqui
+          skills: [],
         }),
       });
 
       if (response.ok) {
-        // Usuário criado com sucesso, faça o que for necessário (redirecionar, mostrar uma mensagem, etc.)
+   
         window.location.href = "/";
       } else {
         console.log("Create user failed");

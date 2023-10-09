@@ -19,7 +19,7 @@ const RedditPostForm: React.FC = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Inclua o token no cabeçalho de autorização
+            Authorization: `Bearer ${token}`,
           },
           body: JSON.stringify({
             post: { title: title, content: content, user_id },
@@ -31,14 +31,11 @@ const RedditPostForm: React.FC = () => {
       );
 
       if (response.ok) {
-        // Postagem bem-sucedida
         console.log("Postagem enviada com sucesso!");
-        // Limpar os campos após enviar a postagem
         setTitle("");
         setContent("");
         setError(null);
       } else {
-        // Se a resposta não estiver ok, lançar um erro
         throw new Error("Falha ao enviar postagem.");
       }
     } catch (error) {
@@ -54,7 +51,7 @@ const RedditPostForm: React.FC = () => {
         className="max-w-lg w-full bg-[#282d31] p-8 rounded-lg shadow-md"
       >
         <h2 className="text-2xl font-semibold mb-6 text-white">
-          Criar Nova Postagem
+          Create new post
         </h2>
         {error && <div className="text-red-500 mb-4">{error}</div>}
         <div className="mb-4">
@@ -110,7 +107,7 @@ const RedditPostForm: React.FC = () => {
           type="submit"
           className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
-          <a href="/home">Enviar Postagem</a>
+          <a href="/home">Submit post</a>
         </button>
       </form>
     </div>

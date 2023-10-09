@@ -47,7 +47,6 @@ const LoginModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       });
 
       if (response.ok) {
-        // Usuário criado com sucesso, faça o que for necessário (redirecionar, mostrar uma mensagem, etc.)
         const userToken = await response.json();
         localStorage.setItem("user_token", JSON.stringify(userToken));
         window.location.href = "/home";
