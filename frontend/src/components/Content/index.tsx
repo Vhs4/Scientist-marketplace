@@ -13,11 +13,14 @@ const Content = () => {
   const [data, setData] = useState([]);
 
   async function handlePost() {
-    const { access_token } = JSON.parse(localStorage.getItem("user_token"));
-    const res = await api.get(`/user/ports/get_my_posts`, {
-      headers: { Authorization: "Bearer " + access_token },
-    });
-    setData(res.data);
+    const userToken = localStorage.getItem("user_token");
+    if (userToken !== null) {
+      const { access_token } = JSON.parse(userToken);
+      const res = await api.get(`/user/ports/get_my_posts`, {
+        headers: { Authorization: "Bearer " + access_token },
+      });
+      setData(res.data);
+    }
   }
 
   useEffect(() => {
@@ -99,7 +102,7 @@ const Content = () => {
 
         <div id="ContentCard">
           <div className="ContentCards">
-            {data.map((card) => {
+            {data.map((card : any) => {
               return (
                 <ContentCardContainer
                   key={card.id}
@@ -107,7 +110,6 @@ const Content = () => {
                     "https://images.unsplash.com/photo-1617155093730-a8bf47be792d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
                   }
                   Title={card.title}
-                  Skills={card.skills.map((i) => i.name).join(", ")}
                   Username={card.username}
                   Created_at={card.created_at}
                 />

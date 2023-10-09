@@ -11,9 +11,8 @@ const RedditPostForm: React.FC = () => {
     event.preventDefault();
 
     try {
-      const { access_token: token, user_id } = JSON.parse(
-        localStorage.getItem("user_token")
-      ); // Substitua pelo seu token de autenticação
+      const userToken = localStorage.getItem("user_token");
+      const { access_token: token, user_id } = userToken ? JSON.parse(userToken) : { access_token: "", user_id: "" };
       const response = await fetch(
         "http://localhost:8000/user/ports/create_post",
         {

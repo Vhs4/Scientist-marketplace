@@ -30,12 +30,20 @@ const LoginModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     body.append("password", formData.password);
 
     try {
+      const body = new URLSearchParams();
+      body.append("grant_type", "");
+      body.append("scope", "");
+      body.append("client_id", "");
+      body.append("client_secret", "");
+      body.append("username", formData.username);
+      body.append("password", formData.password);
+
       const response = await fetch("http://localhost:8000/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: new URLSearchParams(body),
+        body: body.toString(),
       });
 
       if (response.ok) {
