@@ -1,7 +1,13 @@
 import React from "react";
 import "./styles.css";
 
-const ContentCardContainer = ({Img, Title, Tag}: any) => {
+const ContentCardContainer = ({
+  Img,
+  Title,
+  Skills,
+  Username,
+  Created_at,
+}: any) => {
   return (
     <div className="ContentCardContainer">
       <div className="ContainerImg">
@@ -14,7 +20,7 @@ const ContentCardContainer = ({Img, Title, Tag}: any) => {
         </div>
         <div className="TagsContainer">
           <div className="Tags">
-            <div className="btn-xs">{Tag}</div>
+            <div className="btn-xs">{Skills}</div>
           </div>
         </div>
         <div className="UserContainer">
@@ -24,11 +30,11 @@ const ContentCardContainer = ({Img, Title, Tag}: any) => {
             </div>
           </div>
           <div className="UserContent">
-            <div className="UserName">Paulo Filho</div>
-            <div>3 weeks ago</div>
+            <div className="UserName">{Username}</div>
+            <div>{Created_at}</div>
           </div>
           <div className="Statistics">
-            <div>36,6545 Likes</div>
+            <div>36,654 Likes</div>
             <div>56 comments</div>
           </div>
         </div>

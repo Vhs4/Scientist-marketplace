@@ -4,13 +4,16 @@ import React, { useState } from "react";
 const RedditPostForm: React.FC = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [skills, setSkills] = useState("");
   const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
 
     try {
-      const token = "seu-token-de-autenticacao-aqui"; // Substitua pelo seu token de autenticação
+      const { access_token: token, user_id } = JSON.parse(
+        localStorage.getItem("user_token")
+      ); // Substitua pelo seu token de autenticação
       const response = await fetch(
         "http://localhost:8000/user/ports/create_post",
         {
@@ -20,9 +23,10 @@ const RedditPostForm: React.FC = () => {
             Authorization: `Bearer ${token}`, // Inclua o token no cabeçalho de autorização
           },
           body: JSON.stringify({
-            title: title,
-            content: content,
-            user_id: 0,
+            post: { title: title, content: content, user_id },
+            skills: skills.split(",").map((it) => ({
+              name: it,
+            })),
           }),
         }
       );
@@ -59,7 +63,7 @@ const RedditPostForm: React.FC = () => {
             className="block text-white text-sm font-bold mb-2"
             htmlFor="title"
           >
-            Título
+            Title
           </label>
           <input
             type="text"
@@ -76,13 +80,29 @@ const RedditPostForm: React.FC = () => {
             className="block text-white text-sm font-bold mb-2"
             htmlFor="content"
           >
-            Conteúdo
+            Content
           </label>
           <textarea
             id="content"
             name="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
+            className="w-full border-0 rounded-sm px-3 py-2 h-32 resize-none bg-[#3a3a3a] text-white focus:outline-none"
+            required
+          />
+        </div>
+        <div className="mb-6">
+          <label
+            className="block text-white text-sm font-bold mb-2"
+            htmlFor="content"
+          >
+            Skills
+          </label>
+          <textarea
+            id="content"
+            name="content"
+            value={skills}
+            onChange={(e) => setSkills(e.target.value)}
             className="w-full border-0 rounded-sm px-3 py-2 h-32 resize-none bg-[#3a3a3a] text-white focus:outline-none"
             required
           />

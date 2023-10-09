@@ -43,12 +43,12 @@ const SignUpModal: React.FC<SignUpModalProps> = ({ onClose }) => {
 
       if (response.ok) {
         // Usuário criado com sucesso, faça o que for necessário (redirecionar, mostrar uma mensagem, etc.)
-        window.location.href = "/home";
+        window.location.href = "/";
       } else {
-        console.log("Erro ao criar usuário");
+        console.log("Create user failed");
       }
     } catch (error) {
-      console.error("Erro ao enviar formulário:", error);
+      console.error("Error to send the form:", error);
     }
   };
 

@@ -1,12 +1,29 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import CardComponent from "../otherComponents/CardComponent";
 import FriendCardContainer from "../otherComponents/FriendCardContainer";
 import ContentCardContainer from "../otherComponents/ContentCardContainer";
 import RelevantArticles from "../otherComponents/RelevantArticles";
 
+import { api } from "../../../services/api";
+
 import "./styles.css";
 
 const Content = () => {
+  const [data, setData] = useState([]);
+
+  async function handlePost() {
+    const { access_token } = JSON.parse(localStorage.getItem("user_token"));
+    const res = await api.get(`/user/ports/get_my_posts`, {
+      headers: { Authorization: "Bearer " + access_token },
+    });
+    setData(res.data);
+  }
+
+  useEffect(() => {
+    handlePost();
+  }, []);
+
   return (
     <div id="Container">
       <section id="LeftBar">
@@ -82,13 +99,20 @@ const Content = () => {
 
         <div id="ContentCard">
           <div className="ContentCards">
-            <ContentCardContainer
-              Img={
-                "https://images.unsplash.com/photo-1617155093730-a8bf47be792d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-              }
-              Title={"A amazing chemistry article about"}
-              Tag={"Chemistry"}
-            />
+            {data.map((card) => {
+              return (
+                <ContentCardContainer
+                  key={card.id}
+                  Img={
+                    "https://images.unsplash.com/photo-1617155093730-a8bf47be792d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                  }
+                  Title={card.title}
+                  Skills={card.skills.map((i) => i.name).join(", ")}
+                  Username={card.username}
+                  Created_at={card.created_at}
+                />
+              );
+            })}
           </div>
         </div>
       </section>
@@ -99,24 +123,20 @@ const Content = () => {
           Subtitle={"Nasa"}
           Title={"NASA Gov"}
           Path={"https://www.nasa.gov/"}
-          Post={"45,930 posts"}
         />
         <RelevantArticles
           Subtitle={"Go to Mars"}
           Title={"Data nasa"}
-          Post={"45,930 posts"}
           Path={"https://data.nasa.gov/"}
         />
         <RelevantArticles
           Subtitle={"Asteroids"}
           Title={"NASA Asteroids"}
-          Post={"45,930 posts"}
           Path={"https://www.jpl.nasa.gov/asteroid-watch/next-five-approaches"}
         />
         <RelevantArticles
           Subtitle={"Nasa DATA STRATEGY"}
           Title={"Nasa Book"}
-          Post={"45 posts"}
           Path={
             "https://www.nasa.gov/wp-content/uploads/2023/02/nasa_data_strategy.pdf"
           }
